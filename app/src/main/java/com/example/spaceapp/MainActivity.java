@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
         final Button asteroidList = findViewById(R.id.button);
         asteroidList.setOnClickListener(new View.OnClickListener() {
             @Override

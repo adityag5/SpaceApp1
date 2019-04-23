@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.net.Uri;
 import android.content.Intent;
 import android.app.Activity;
+import android.widget.VideoView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(viewIntent);
             }
         });
+
     }
 
     @Override

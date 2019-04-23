@@ -1,8 +1,15 @@
 package com.example.lib;
-GET https://api.nasa.gov/neo/rest/v1/feed?start_date=START_DATE&end_date=END_DATE&api_key=wPXnu2yQI5wMCoafE8wNuldzqV3NySggOfW94ooQ
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class AsteroidTracker {
 
+    public String getAsteroidList() {
 
+    }
 
 }

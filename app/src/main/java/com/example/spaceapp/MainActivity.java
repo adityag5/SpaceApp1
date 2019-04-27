@@ -18,6 +18,10 @@ import android.net.Uri;
 import android.content.Intent;
 import android.app.Activity;
 import android.widget.VideoView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -28,8 +32,11 @@ import com.google.gson.JsonParser;
 
 public class MainActivity extends AppCompatActivity {
 
+    private RequestQueue requestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestQueue = Volley.newRequestQueue(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -77,4 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

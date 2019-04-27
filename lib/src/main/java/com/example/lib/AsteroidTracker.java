@@ -6,7 +6,11 @@ import com.google.gson.JsonElement;
 
 public class AsteroidTracker {
 
-    public String getAsteroidList() {
-        return null;
+    private static JsonParser newParser = new JsonParser();
+
+
+
+    public String getAsteroidList(final String json) {
+        return json;
     }
 }

@@ -10,5 +10,6 @@ public class AsteroidTracker {
 
 
     public String getAsteroidList(final String json) {
+        return json;
     }
 }

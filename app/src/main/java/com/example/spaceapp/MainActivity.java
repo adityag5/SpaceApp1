@@ -21,6 +21,7 @@ import android.widget.VideoView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
@@ -33,10 +34,19 @@ import com.google.gson.JsonParser;
 public class MainActivity extends AppCompatActivity {
 
     private RequestQueue requestQueue;
+    String apiKey = "wPXnu2yQI5wMCoafE8wNuldzqV3NySggOfW94ooQ";
+
+    String requestUrl = "https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=wPXnu2yQI5wMCoafE8wNuldzqV3NySggOfW94ooQ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        /** Creates RequestQueue**/
         requestQueue = Volley.newRequestQueue(this);
+
+
+        JsonObjectRequest asteroidObjectRequest = new JsonObjectRequest(Request.Method.GET,requestUrl,  );
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);

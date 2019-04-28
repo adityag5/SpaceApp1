@@ -50,8 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         /** Creates RequestQueue**/
         requestQueue = Volley.newRequestQueue(this);
-
-
+        String asteroidName;
         final JsonObjectRequest asteroidObjectRequest = new JsonObjectRequest(Request.Method.GET, requestUrl,
                 null, new Response.Listener<JSONObject>() {
             @Override
@@ -61,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
                     for (int i = 0; i < objectArray.length(); i++) {
                         JSONObject asteroid = objectArray.getJSONObject(i);
-                        String asteroidName = asteroid.getString("name");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -103,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView jsonText = findViewById(R.id.jsonResult);
+
     }
 
     @Override

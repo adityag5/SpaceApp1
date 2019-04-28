@@ -56,7 +56,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    JSONArray json = response.getJSONArray("near_earth_objects");
+                    JSONArray objectArray = response.getJSONArray("near_earth_objects");
+
+                    for (int i = 0; i < objectArray.length(); i++) {
+                        JSONObject asteroid = objectArray.getJSONObject(i);
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.net.Uri;
 import android.content.Intent;
 import android.app.Activity;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.android.volley.Request;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
 
-        JsonObjectRequest asteroidObjectRequest = new JsonObjectRequest(Request.Method.GET, requestUrl,
+        final JsonObjectRequest asteroidObjectRequest = new JsonObjectRequest(Request.Method.GET, requestUrl,
                 null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
                     for (int i = 0; i < objectArray.length(); i++) {
                         JSONObject asteroid = objectArray.getJSONObject(i);
+                        String asteroidName = asteroid.getString("name");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -70,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
-
             }
     });
         requestQueue.add(asteroidObjectRequest);
@@ -93,12 +94,15 @@ public class MainActivity extends AppCompatActivity {
         asteroidList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW");
-                viewIntent.setData(Uri.parse("http://asteroids.neilparley.com/asteroids/data.html"));
-                startActivity(viewIntent);
+                System.out.println();
+
+                //Intent viewIntent = new Intent("android.intent.action.VIEW");
+                //viewIntent.setData(Uri.parse("http://asteroids.neilparley.com/asteroids/data.html"));
+                //startActivity(viewIntent);
             }
         });
 
+        TextView jsonText = findViewById(R.id.jsonResult);
     }
 
     @Override

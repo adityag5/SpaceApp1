@@ -9,7 +9,7 @@ public class AsteroidTracker {
     private static JsonParser newParser = new JsonParser();
 
 
-    public String getAsteroidList(final String json) {
-        return json;
+    public String getAsteroidname(final String asteroid) {
+        return asteroid;
     }
 }

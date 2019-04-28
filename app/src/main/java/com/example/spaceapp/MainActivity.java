@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
     });
+        requestQueue.add(asteroidObjectRequest);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

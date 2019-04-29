@@ -41,21 +41,21 @@ import org.json.JSONStringer;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView asteroidTextView;
     private RequestQueue requestQueue;
+
     String apiKey = "wPXnu2yQI5wMCoafE8wNuldzqV3NySggOfW94ooQ";
 
     String requestUrl = "https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=wPXnu2yQI5wMCoafE8wNuldzqV3NySggOfW94ooQ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final TextView jsonText = findViewById(R.id.jsonResult);
-
-        ((AsteroidTracker)getActivi
+        asteroidTextView = findViewById(R.id.AsteroidView);
 
         /** Creates RequestQueue**/
+
         requestQueue = Volley.newRequestQueue(this);
 
-        String asteroidName;
         final JsonObjectRequest asteroidObjectRequest = new JsonObjectRequest(Request.Method.GET, requestUrl,
                 null, new Response.Listener<JSONObject>() {
             @Override
@@ -64,9 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray objectArray = response.getJSONArray("near_earth_objects");
                     for (int i = 0; i < objectArray.length(); i++) {
                         JSONObject asteroid = objectArray.getJSONObject(i);
-                    }
-                    if (objectArray.get(0) != null) {
-                        jsonText.setText();
+                        asteroidTextView.append(asteroid.getString("name"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -85,15 +83,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         final Button asteroidList = findViewById(R.id.button);
         asteroidList.setOnClickListener(new View.OnClickListener() {

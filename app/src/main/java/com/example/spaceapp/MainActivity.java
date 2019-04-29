@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                             for (int i = 0; i < objectArray.length(); i++) {
                                 JSONObject asteroid = objectArray.getJSONObject(i);
                                 String name = asteroid.getString("name");
-                                asteroidTextView.append(name);
+                                asteroidTextView.append(name + ", ");
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

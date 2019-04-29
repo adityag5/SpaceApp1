@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
         asteroidListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ListActivity.class);
+                startActivity(i);
                 JsonObjectRequest asteroidObjectRequest = new JsonObjectRequest(Request.Method.GET, requestUrl,
                         null, new Response.Listener<JSONObject>() {
                     @Override

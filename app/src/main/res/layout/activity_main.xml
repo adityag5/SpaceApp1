@@ -28,12 +28,6 @@
         app:layout_anchor="@+id/imageView"
         app:layout_anchorGravity="left|bottom" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="245dp"
-        android:layout_height="474dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
-
     <TextView
         android:id="@+id/AsteroidView"
         android:layout_width="match_parent"
@@ -50,5 +44,10 @@
         android:text="Asteroid List"
         app:layout_anchor="@+id/AsteroidView"
         app:layout_anchorGravity="bottom|center" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_height="474dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
 
 </android.support.design.widget.CoordinatorLayout>

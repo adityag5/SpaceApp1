@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         asteroidTextView = findViewById(R.id.AsteroidView);
         final Button asteroidVideoButton = findViewById(R.id.button);
         asteroidVideoButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Intent viewIntent = new Intent("android.intent.action.VIEW");

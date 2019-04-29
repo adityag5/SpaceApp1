@@ -9,7 +9,6 @@ public class AsteroidTracker {
     AsteroidTracker(){
     }
 
-
     public static String getAsteroidName(final JSONObject asteroid) throws JSONException {
         System.out.println(asteroid.getString("name"));
         return asteroid.getString("name");
@@ -27,4 +26,5 @@ public class AsteroidTracker {
     public String getAsteroidUrl(final JSONObject asteroid) throws JSONException {
         return asteroid.getString("nasa_jpl_url");
     }
+    public String
 }

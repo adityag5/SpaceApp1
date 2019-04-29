@@ -36,11 +36,6 @@ import org.json.JSONStringer;
 public class MainActivity extends AppCompatActivity {
 
     private TextView asteroidTextView;
-    private RequestQueue requestQueue;
-
-    String apiKey = "wPXnu2yQI5wMCoafE8wNuldzqV3NySggOfW94ooQ";
-
-    String requestUrl = "https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=wPXnu2yQI5wMCoafE8wNuldzqV3NySggOfW94ooQ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +43,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        requestQueue = Volley.newRequestQueue(this);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        asteroidTextView = findViewById(R.id.AsteroidView);
 
         final Button asteroidVideoButton = findViewById(R.id.button);
         asteroidVideoButton.setOnClickListener(new View.OnClickListener() {
@@ -71,33 +64,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, ListActivity.class);
                 startActivity(i);
-                JsonObjectRequest asteroidObjectRequest = new JsonObjectRequest(Request.Method.GET, requestUrl,
-                        null, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray objectArray = response.getJSONArray("near_earth_objects");
-                            for (int i = 0; i < objectArray.length(); i++) {
-                                JSONObject asteroid = objectArray.getJSONObject(i);
-                                String name = asteroid.getString("name");
-                                asteroidTextView.append(name + ", ");
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                    }
-                });
-                requestQueue.add(asteroidObjectRequest);
             }
         });
-
-
     }
 
     @Override

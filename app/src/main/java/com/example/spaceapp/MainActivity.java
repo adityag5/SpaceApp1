@@ -1,9 +1,4 @@
 package com.example.spaceapp;
-//package com.example.application.webviewapp;
-//package com.example.pc.browseawebsite;
-//package ckccc.edu.listbrowser;
-
-
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;

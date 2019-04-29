@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
                             JSONArray objectArray = response.getJSONArray("near_earth_objects");
                             for (int i = 0; i < objectArray.length(); i++) {
                                 JSONObject asteroid = objectArray.getJSONObject(i);
-                                asteroidTextView.append(asteroid.getString("name"));
+                                String name = asteroid.getString("name");
+                                asteroidTextView.append(name);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

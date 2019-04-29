@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent viewIntent = new Intent("android.intent.action.VIEW");
-                viewIntent.setData(Uri.parse("http://asteroids.neilparley.com/asteroids/data.html"));
+                viewIntent.setData(Uri.parse("https://www.youtube.com/watch?v=bU1QPtOZQZU"));
                 startActivity(viewIntent);
             }
         });

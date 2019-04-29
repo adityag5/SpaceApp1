@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="107dp"
-            android:background="?attr/colorPrimary"
+            android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -23,15 +23,15 @@
     <include
         android:id="@+id/include"
         layout="@layout/content_main"
-        android:layout_width="283dp"
-        android:layout_height="153dp"
+        android:layout_width="match_parent"
+        android:layout_height="759dp"
         app:layout_anchor="@+id/imageView"
-        app:layout_anchorGravity="right|bottom" />
+        app:layout_anchorGravity="left|bottom" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="276dp"
+        android:layout_width="245dp"
+        android:layout_height="474dp"
         tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
 
     <TextView
@@ -42,5 +42,13 @@
         android:textSize="30sp"
         app:layout_anchor="@+id/imageView"
         app:layout_anchorGravity="right|bottom" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asteroid List"
+        app:layout_anchor="@+id/AsteroidView"
+        app:layout_anchorGravity="bottom|center" />
 
 </android.support.design.widget.CoordinatorLayout>

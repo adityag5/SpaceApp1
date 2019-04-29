@@ -50,12 +50,32 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        asteroidTextView = findViewById(R.id.AsteroidView);
 
-        /** Creates RequestQueue**/
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         requestQueue = Volley.newRequestQueue(this);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        asteroidTextView = findViewById(R.id.AsteroidView);
+        final Button asteroidVideoButton = findViewById(R.id.button);
+        asteroidVideoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewIntent = new Intent("android.intent.action.VIEW");
+                viewIntent.setData(Uri.parse("http://asteroids.neilparley.com/asteroids/data.html"));
+                startActivity(viewIntent);
+            }
+        });
+        final Button asteroidListButton = findViewById(R.id.button2);
+        asteroidListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         final JsonObjectRequest asteroidObjectRequest = new JsonObjectRequest(Request.Method.GET, requestUrl,
                 null, new Response.Listener<JSONObject>() {
             @Override
@@ -76,28 +96,8 @@ public class MainActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
             }
-    });
-        requestQueue.add(asteroidObjectRequest);
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        final Button asteroidList = findViewById(R.id.button);
-        asteroidList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println();
-
-                //Intent viewIntent = new Intent("android.intent.action.VIEW");
-                //viewIntent.setData(Uri.parse("http://asteroids.neilparley.com/asteroids/data.html"));
-                //startActivity(viewIntent);
-            }
         });
-
-
-
+        requestQueue.add(asteroidObjectRequest);
     }
 
     @Override

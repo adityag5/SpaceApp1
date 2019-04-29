@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         asteroidTextView = findViewById(R.id.AsteroidView);
+
         final Button asteroidVideoButton = findViewById(R.id.button);
         asteroidVideoButton.setOnClickListener(new View.OnClickListener() {
 

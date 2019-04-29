@@ -14,10 +14,15 @@ public class AsteroidTracker {
     public String getAsteroidName(final JSONObject asteroid) throws JSONException {
         return asteroid.getString("name");
     }
-    public String getAsteroidSizeMeters(final JSONObject asteroid) throws JSONException {
+    public int getAsteroidSizeMetersMin(final JSONObject asteroid) throws JSONException {
         JSONObject diameter = asteroid.getJSONObject("estimated_diameter");
         JSONObject meters = diameter.getJSONObject("meters");
-        return meters.getString("estimated_diameter_min");
+        return meters.getInt("estimated_diameter_min");
+    }
+    public int getAsteroidSizeMetersMax(final JSONObject asteroid) throws JSONException {
+        JSONObject diameter = asteroid.getJSONObject("estimated_diameter");
+        JSONObject meters = diameter.getJSONObject("meters");
+        return meters.getInt("estimated_diameter_max");
     }
     public String getAsteroidUrl(final JSONObject asteroid) throws JSONException {
         return asteroid.getString("nasa_jpl_url");

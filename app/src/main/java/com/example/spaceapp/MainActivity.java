@@ -36,6 +36,7 @@ import com.google.gson.JsonParser;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        final TextView jsonText = findViewById(R.id.jsonResult);
         /** Creates RequestQueue**/
         requestQueue = Volley.newRequestQueue(this);
         String asteroidName;
@@ -57,9 +58,10 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray objectArray = response.getJSONArray("near_earth_objects");
-
                     for (int i = 0; i < objectArray.length(); i++) {
                         JSONObject asteroid = objectArray.getJSONObject(i);
+                        jsonText.setText(asteroid.toString());
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView jsonText = findViewById(R.id.jsonResult);
+
 
     }
 

@@ -49,8 +49,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final TextView jsonText = findViewById(R.id.jsonResult);
+
+        ((AsteroidTracker)getActivi
+
         /** Creates RequestQueue**/
         requestQueue = Volley.newRequestQueue(this);
+
         String asteroidName;
         final JsonObjectRequest asteroidObjectRequest = new JsonObjectRequest(Request.Method.GET, requestUrl,
                 null, new Response.Listener<JSONObject>() {
@@ -60,8 +64,9 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray objectArray = response.getJSONArray("near_earth_objects");
                     for (int i = 0; i < objectArray.length(); i++) {
                         JSONObject asteroid = objectArray.getJSONObject(i);
-                        jsonText.setText(asteroid.toString());
-
+                    }
+                    if (objectArray.get(0) != null) {
+                        jsonText.setText();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

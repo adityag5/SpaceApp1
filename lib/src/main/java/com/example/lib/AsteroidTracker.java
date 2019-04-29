@@ -1,6 +1,4 @@
 package com.example.lib;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 //import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -8,10 +6,12 @@ import org.json.JSONObject;
 
 public class AsteroidTracker {
 
-    private static JsonParser newParser = new JsonParser();
+    AsteroidTracker(){
+    }
 
 
-    public String getAsteroidName(final JSONObject asteroid) throws JSONException {
+    public static String getAsteroidName(final JSONObject asteroid) throws JSONException {
+        System.out.println(asteroid.getString("name"));
         return asteroid.getString("name");
     }
     public int getAsteroidSizeMetersMin(final JSONObject asteroid) throws JSONException {

@@ -73,31 +73,32 @@ public class MainActivity extends AppCompatActivity {
         asteroidListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                JsonObjectRequest asteroidObjectRequest = new JsonObjectRequest(Request.Method.GET, requestUrl,
+                        null, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray objectArray = response.getJSONArray("near_earth_objects");
+                            for (int i = 0; i < objectArray.length(); i++) {
+                                JSONObject asteroid = objectArray.getJSONObject(i);
+                                asteroidTextView.append(asteroid.getString("name"));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
-            }
-        });
-        final JsonObjectRequest asteroidObjectRequest = new JsonObjectRequest(Request.Method.GET, requestUrl,
-                null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray objectArray = response.getJSONArray("near_earth_objects");
-                    for (int i = 0; i < objectArray.length(); i++) {
-                        JSONObject asteroid = objectArray.getJSONObject(i);
-                        asteroidTextView.append(asteroid.getString("name"));
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                });
+                requestQueue.add(asteroidObjectRequest);
             }
         });
-        requestQueue.add(asteroidObjectRequest);
+
+
     }
 
     @Override

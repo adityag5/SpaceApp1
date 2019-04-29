@@ -26,5 +26,4 @@ public class AsteroidTracker {
     public String getAsteroidUrl(final JSONObject asteroid) throws JSONException {
         return asteroid.getString("nasa_jpl_url");
     }
-    public String
 }

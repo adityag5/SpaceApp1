@@ -66,19 +66,19 @@ public class ListActivity extends AppCompatActivity {
 
                         asteroidTextView.append(AsteroidTracker.getCloseApproachDate(asteroid));
                     }
+                    HashMap<String,String> item;
+                    for(int i = 0; i < asteroidMultiArray.length; i++){
+                        item = new HashMap<String,String>();
+                        item.put( "line1", asteroidMultiArray[i][0]);
+                        item.put( "line2", asteroidMultiArray[i][1]);
+                        item.put( "line3", asteroidMultiArray[i][2]);
+                        item.put( "line4", asteroidMultiArray[i][3]);
+                        list.add(item);
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                HashMap<String,String> item;
-                for(int i = 0; i < AsteroidMultiArray.length; i++){
-                    item = new HashMap<String,String>();
-                    item.put( "line1", AsteroidMultiArray[i][0]);
-                    item.put( "line2", AsteroidMultiArray[i][1]);
-                    item.put( "line3". AsteroidMultiArray[i][2]);
-                    item.put( "line4", AsteroidMultiArray[i][3]);
-                    list.add(item);
-                }
-                sa = new SimpleAdapter(this, AsteroidMultiArray,
+                sa = new SimpleAdapter(this, asteroidMultiArray,
                         R.layout.individual,
                         new String[] { "line1", "line2", "line3", "line4"},
                         new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d} );

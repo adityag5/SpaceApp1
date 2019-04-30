@@ -25,12 +25,14 @@ import com.example.lib.AsteroidTracker;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class ListActivity extends AppCompatActivity {
 
-    public ArrayList<HashMap<String, String>> list = new ArrayList<>();
     private SimpleAdapter sa;
+    ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
 
     private RequestQueue requestQueue;
     String apiKey = "wPXnu2yQI5wMCoafE8wNuldzqV3NySggOfW94ooQ";
@@ -42,6 +44,11 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        sa = new SimpleAdapter(this, list,
+                R.layout.individual,
+                new String[] { "line1", "line2", "line3", "line4"},
+                new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d} );
+
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
@@ -64,7 +71,7 @@ public class ListActivity extends AppCompatActivity {
                         asteroidData[0] = AsteroidTracker.getAsteroidName(asteroid);
                         asteroidData[1] = AsteroidTracker.getAsteroidUrl(asteroid);
 
-                        asteroidTextView.append(AsteroidTracker.getCloseApproachDate(asteroid));
+                        //asteroidTextView.append(AsteroidTracker.getCloseApproachDate(asteroid));
                     }
                     HashMap<String,String> item;
                     for(int i = 0; i < asteroidMultiArray.length; i++){
@@ -78,10 +85,7 @@ public class ListActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                sa = new SimpleAdapter(this, asteroidMultiArray,
-                        R.layout.individual,
-                        new String[] { "line1", "line2", "line3", "line4"},
-                        new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d} );
+
                 ((ListView)findViewById(R.id.list)).setAdapter(sa);
 
             }

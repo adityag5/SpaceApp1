@@ -82,9 +82,6 @@ public class ListActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-                ((ListView)findViewById(R.id.list)).setAdapter(sa);
-
             }
         }, new Response.ErrorListener() {
             @Override
@@ -97,6 +94,7 @@ public class ListActivity extends AppCompatActivity {
                 R.layout.individual,
                 new String[] { "line1", "line2", "line3", "line4"},
                 new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d} );
+        ((ListView)findViewById(R.id.list)).setAdapter(sa);
     }
 
 

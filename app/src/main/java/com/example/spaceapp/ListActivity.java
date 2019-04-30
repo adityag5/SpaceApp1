@@ -72,6 +72,7 @@ public class ListActivity extends AppCompatActivity {
                         asteroidData[1] = AsteroidTracker.getAsteroidUrl(asteroid);
 
                         //asteroidTextView.append(AsteroidTracker.getCloseApproachDate(asteroid));
+                        //reeeeeee
                     }
                     HashMap<String,String> item;
                     for(int i = 0; i < asteroidMultiArray.length; i++){

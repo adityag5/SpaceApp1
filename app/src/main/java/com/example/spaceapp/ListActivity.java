@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -21,8 +23,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import com.example.lib.AsteroidTracker;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class ListActivity extends AppCompatActivity {
+
+    public ArrayList<HashMap<String, String>> list = new ArrayList<>();
+    private SimpleAdapter sa;
 
     private RequestQueue requestQueue;
     String apiKey = "wPXnu2yQI5wMCoafE8wNuldzqV3NySggOfW94ooQ";
@@ -55,6 +63,20 @@ public class ListActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                HashMap<String,String> item;
+                for(int i = 0; i < AsteroidMultiArray.length; i++){
+                    item = new HashMap<String,String>();
+                    item.put( "line1", AsteroidMultiArray[i][0]);
+                    item.put( "line2", AsteroidMultiArray[i][1]);
+                    item.put( "line3". AsteroidMultiArray[i][2]);
+                    item.put( "line4", AsteroidMultiArray[i][3]);
+                    list.add(item);
+                }
+                sa = new SimpleAdapter(this, AsteroidMultiArray,
+                        R.layout.individual,
+                        new String[] { "line1", "line2", "line3", "line4"},
+                        new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d} );
+                ((ListView)findViewById(R.id.list)).setAdapter(sa);
 
             }
         }, new Response.ErrorListener() {

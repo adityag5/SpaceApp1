@@ -96,6 +96,4 @@ public class ListActivity extends AppCompatActivity {
                 new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d} );
         ((ListView)findViewById(R.id.list)).setAdapter(sa);
     }
-
-
 }

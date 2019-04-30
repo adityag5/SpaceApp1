@@ -45,9 +45,15 @@ public class ListActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray objectArray = response.getJSONArray("near_earth_objects");
+                    String[][] asteroidMultiArray = new String[objectArray.length()][4];
+
                     for (int i = 0; i < objectArray.length(); i++) {
                         JSONObject asteroid = objectArray.getJSONObject(i);
-                        asteroidTextView.append(AsteroidTracker.getAsteroidName(asteroid) + ", ");
+                        String[] asteroidData = new String[4];
+                        asteroidData[0] = AsteroidTracker.getAsteroidName(asteroid);
+                        asteroidData[1] = AsteroidTracker.getAsteroidUrl(asteroid);
+
+                        asteroidTextView.append(AsteroidTracker.getCloseApproachDate(asteroid));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

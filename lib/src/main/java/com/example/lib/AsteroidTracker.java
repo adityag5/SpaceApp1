@@ -1,7 +1,4 @@
 package com.example.lib;
-//import com.android.volley.toolbox.Volley;
-import com.google.gson.JsonObject;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,8 +25,12 @@ public class AsteroidTracker {
     public String getAsteroidUrl(final JSONObject asteroid) throws JSONException {
         return asteroid.getString("nasa_jpl_url");
     }
-    public String getOrbitBody(final JsonObject asteroid) throws JSONException {
-        return asteroid.getString();
+    public String getOrbitBody(final JSONObject asteroid) throws JSONException {
+        JSONArray approachArray = asteroid.getJSONArray("close_approach_data");
+        return approachArray.getJSONObject(4).toString();
+    }
+    public boolean isHazardous(final JSONObject asteroid) throws JSONException {
+        return asteroid.getBoolean("is_potentially_hazardous_asteroid");
     }
 
 }

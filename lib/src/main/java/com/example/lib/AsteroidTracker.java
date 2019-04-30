@@ -5,11 +5,11 @@ import org.json.JSONObject;
 
 public class AsteroidTracker {
 
-    AsteroidTracker(){
-    }
+    private static String asteroidName;
 
     public static String getAsteroidName(final JSONObject asteroid) throws JSONException {
         System.out.println(asteroid.getString("name"));
+        asteroidName = asteroid.getString("name");
         return asteroid.getString("name");
     }
     public int getAsteroidSizeMetersMin(final JSONObject asteroid) throws JSONException {

@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -33,8 +34,10 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+
+
         asteroidTextView = findViewById(R.id.AsteroidText);
 
 
@@ -68,4 +71,6 @@ public class ListActivity extends AppCompatActivity {
         });
         requestQueue.add(asteroidObjectRequest);
     }
+
+
 }

@@ -18,6 +18,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.example.lib.AsteroidTracker;
+
 
 public class ListActivity extends AppCompatActivity {
 
@@ -45,8 +47,7 @@ public class ListActivity extends AppCompatActivity {
                     JSONArray objectArray = response.getJSONArray("near_earth_objects");
                     for (int i = 0; i < objectArray.length(); i++) {
                         JSONObject asteroid = objectArray.getJSONObject(i);
-                        String name = asteroid.getString("name");
-                        asteroidTextView.append(name + ", ");
+                        asteroidTextView.append(AsteroidTracker.getAsteroidName(asteroid) + ", ");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

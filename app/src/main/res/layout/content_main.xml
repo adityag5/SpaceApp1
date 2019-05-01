@@ -17,18 +17,18 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="50dp"
         android:text="Asteroid Video"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.594" />
+        app:layout_constraintVertical_bias="0.766" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="468dp"
-        android:layout_height="123dp"
+        android:layout_height="109dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="5dp"
@@ -43,18 +43,48 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@id/NASANewsButton"
-        android:layout_width="133dp"
-        android:layout_height="50dp"
+        android:id="@+id/NASANewsButton"
+        android:layout_width="142dp"
+        android:layout_height="61dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="76dp"
-        android:text="NASA News"
+        android:layout_marginBottom="60dp"
+        android:text="Asteroid Watch"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/AsteroidFactsButton"
+        android:layout_width="142dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="60dp"
+        android:text="Asteroid Facts"
+        app:layout_constraintBottom_toTopOf="@+id/NASANewsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="sans-serif"
+        android:text="Asteroid List"
+        app:layout_constraintBottom_toTopOf="@+id/AsteroidFactsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

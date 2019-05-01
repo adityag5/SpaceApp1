@@ -25,22 +25,14 @@
         android:textColor="@android:color/holo_blue_bright"
         android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="138dp"
-        android:layout_height="wrap_content"
-        android:text="Asteroid List"
-        android:fontFamily="sans-serif"
-        app:layout_anchor="@+id/toolbar"
-        app:layout_anchorGravity="top|center" />
-
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar2"
         android:layout_width="match_parent"
-        android:layout_height="113dp"
+        android:layout_height="129dp"
         android:background="@drawable/jpllogo"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="bottom|center" />
+
 </android.support.design.widget.CoordinatorLayout>

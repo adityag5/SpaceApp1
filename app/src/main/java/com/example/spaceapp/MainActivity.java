@@ -21,12 +21,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-
-
         final Button asteroidVideoButton = findViewById(R.id.button);
         asteroidVideoButton.setOnClickListener(new View.OnClickListener() {
 
@@ -51,8 +45,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent newIntent = new Intent("android.intent.action.VIEW");
-                newIntent.setData(Uri.parse("https://www.jpl.nasa.gov/news/"));
+                newIntent.setData(Uri.parse("https://www.nasa.gov/asteroid-and-comet-watch"));
                 startActivity(newIntent);
+            }
+        });
+        final Button asteroidButton = findViewById(R.id.AsteroidFactsButton);
+        asteroidButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent astIntent = new Intent("android.intent.action.VIEW");
+                astIntent.setData(Uri.parse("https://www.nasa.gov/mission_pages/asteroids/overview/fastfacts.html"));
+                startActivity(astIntent);
             }
         });
     }

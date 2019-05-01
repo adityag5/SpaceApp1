@@ -25,14 +25,12 @@ import com.example.lib.AsteroidTracker;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 
 public class ListActivity extends AppCompatActivity {
-
-    private SimpleAdapter sa;
-    ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
 
     private RequestQueue requestQueue;
     String apiKey = "wPXnu2yQI5wMCoafE8wNuldzqV3NySggOfW94ooQ";
@@ -45,16 +43,19 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        sa = new SimpleAdapter(this, list,
-                R.layout.individual,
-                new String[] { "line1", "line2", "line3", "line4"},
-                new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d} );
-
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
+        final ListView results = (ListView) findViewById(R.id.list);
 
         asteroidTextView = findViewById(R.id.AsteroidText);
+
+        final List<HashMap<String,String>> list = new ArrayList<>();
+
+        final SimpleAdapter sa = new SimpleAdapter(this, list,
+                R.layout.individual,
+                new String[] { "line1", "line2", "line3", "line4"},
+                new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d} );
 
 
         requestQueue = Volley.newRequestQueue(this);
@@ -78,16 +79,26 @@ public class ListActivity extends AppCompatActivity {
 
                         //asteroidTextView.append(AsteroidTracker.getCloseApproachDate(asteroid));
                     }
-                    HashMap<String,String> item;
+                    HashMap<String,String> item = new HashMap<>();
                     for(int i = 0; i < asteroidMultiArray.length; i++){
-                        item = new HashMap<String,String>();
                         item.put( "line1", asteroidMultiArray[i][0]);
                         item.put( "line2", asteroidMultiArray[i][1]);
                         item.put( "line3", asteroidMultiArray[i][2]);
                         item.put( "line4", asteroidMultiArray[i][3]);
-                        list.add(item);
+                    }
+
+                    Iterator it = item.entrySet().iterator();
+                    while(it.hasNext()) {
+                        HashMap<String, String> resultsMap = new HashMap<>();
+                        Map.Entry pair = (Map.Entry)it.next();
+                        resultsMap.put("line1", pair.getKey().toString());
+                        resultsMap.put("line2", pair.getKey().toString());
+                        resultsMap.put("line3", pair.getKey().toString());
+                        resultsMap.put("line4", pair.getKey().toString());
+                        list.add(resultsMap);
 
                     }
+                    results.setAdapter(sa);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -100,6 +111,6 @@ public class ListActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(asteroidObjectRequest);
-        ((ListView)findViewById(R.id.list)).setAdapter(sa);
+        //((ListView)findViewById(R.id.list)).setAdapter(sa);
     }
 }

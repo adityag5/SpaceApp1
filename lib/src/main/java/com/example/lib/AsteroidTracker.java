@@ -15,7 +15,13 @@ public class AsteroidTracker {
 
     private static String orbitPeriod;
 
-    private static String neoReferenceId;
+    private static int asteroidSizeMetersMin;
+
+    private static int asteroidSizeMetersMax;
+
+    private static String isHazardous;
+
+
 
 
     public static String getAsteroidName(final JSONObject asteroid) throws JSONException {
@@ -23,15 +29,17 @@ public class AsteroidTracker {
         asteroidName = asteroid.getString("name");
         return asteroidName;
     }
-    public int getAsteroidSizeMetersMin(final JSONObject asteroid) throws JSONException {
+    public static int getAsteroidSizeMetersMin(final JSONObject asteroid) throws JSONException {
         JSONObject diameter = asteroid.getJSONObject("estimated_diameter");
         JSONObject meters = diameter.getJSONObject("meters");
-        return meters.getInt("estimated_diameter_min");
+        asteroidSizeMetersMin = meters.getInt("estimated_diameter_min");
+        return asteroidSizeMetersMin;
     }
     public int getAsteroidSizeMetersMax(final JSONObject asteroid) throws JSONException {
         JSONObject diameter = asteroid.getJSONObject("estimated_diameter");
         JSONObject meters = diameter.getJSONObject("meters");
-        return meters.getInt("estimated_diameter_max");
+        asteroidSizeMetersMax = meters.getInt("estimated_diameter_max");
+        return asteroidSizeMetersMax;
     }
     public static String getAsteroidUrl(final JSONObject asteroid) throws JSONException {
         asteroidUrl = asteroid.getString("nasa_jpl_url");
@@ -47,8 +55,15 @@ public class AsteroidTracker {
         }
         return orbitBody;
     }
-    public boolean isHazardous(final JSONObject asteroid) throws JSONException {
-        return asteroid.getBoolean("is_potentially_hazardous_asteroid");
+    public static String getIsHazardous(final JSONObject asteroid) throws JSONException {
+        Boolean check = asteroid.getBoolean("is_potentially_hazardous_asteroid");
+        if (check) {
+            isHazardous = "Yes";
+            return isHazardous;
+        } else {
+            isHazardous = "No";
+            return isHazardous;
+        }
     }
     public static String getCloseApproachDate(final JSONObject asteroid) throws JSONException {
         JSONArray approachArray = asteroid.getJSONArray("close_approach_data");
@@ -64,10 +79,7 @@ public class AsteroidTracker {
         JSONObject orbitalData = asteroid.getJSONObject("orbital_data");
         orbitPeriod = orbitalData.getString("orbital_period");
         return orbitPeriod;
-    }
-    public static String getNeoReferenceId(final JSONObject asteroid) throws JSONException {
-        neoReferenceId = asteroid.getString("neo_reference_id");
-        return neoReferenceId;
+
     }
 
 }

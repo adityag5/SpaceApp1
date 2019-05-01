@@ -39,12 +39,11 @@ public class AsteroidTracker {
     }
     public static String getOrbitBody(final JSONObject asteroid) throws JSONException {
         JSONArray approachArray = asteroid.getJSONArray("close_approach_data");
+        if (approachArray.length() == 0) {
+            orbitBody = "Unknown";
+        }
         for (int i = 0; i < approachArray.length(); i++) {
-            if (approachArray.getJSONObject(i).getString("orbiting_body").length() < 1) {
-                orbitBody = "Unknown";
-            } else {
-                orbitBody = approachArray.getJSONObject(i).getString("orbiting_body");
-            }
+            orbitBody = approachArray.getJSONObject(i).getString("orbiting_body");
         }
         return orbitBody;
     }
@@ -53,12 +52,11 @@ public class AsteroidTracker {
     }
     public static String getCloseApproachDate(final JSONObject asteroid) throws JSONException {
         JSONArray approachArray = asteroid.getJSONArray("close_approach_data");
+        if (approachArray.length() == 0) {
+            closeApproachDate = "Unknown";
+        }
         for (int i = 0; i < approachArray.length(); i++) {
-            if (approachArray.getJSONObject(i).getString("close_approach_date").length() < 1) {
-                closeApproachDate = "Unknown";
-            } else {
-                closeApproachDate = approachArray.getJSONObject(i).getString("close_approach_date");
-            }
+            closeApproachDate = approachArray.getJSONObject(i).getString("close_approach_date");
         }
         return closeApproachDate;
     }

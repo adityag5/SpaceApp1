@@ -45,6 +45,11 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        sa = new SimpleAdapter(this, list,
+                R.layout.individual,
+                new String[] { "line1", "line2", "line3", "line4"},
+                new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d} );
+
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
@@ -62,13 +67,16 @@ public class ListActivity extends AppCompatActivity {
                     String[][] asteroidMultiArray = new String[objectArray.length()][4];
 
                     for (int i = 0; i < objectArray.length(); i++) {
+
                         JSONObject asteroid = objectArray.getJSONObject(i);
-                        String[] asteroidData = new String[4];
-                        asteroidData[0] = AsteroidTracker.getAsteroidName(asteroid);
-                        asteroidData[1] = AsteroidTracker.getAsteroidUrl(asteroid);
+
+                        asteroidMultiArray[i][0] = AsteroidTracker.getAsteroidName(asteroid);
+                        asteroidMultiArray[i][1] = AsteroidTracker.getAsteroidUrl(asteroid);
+                        asteroidMultiArray[i][2] = AsteroidTracker.getNeoReferenceId(asteroid);
+                        asteroidMultiArray[i][3] = AsteroidTracker.getOrbitalPeriod(asteroid);
+
 
                         //asteroidTextView.append(AsteroidTracker.getCloseApproachDate(asteroid));
-                        //reeeeeee
                     }
                     HashMap<String,String> item;
                     for(int i = 0; i < asteroidMultiArray.length; i++){
@@ -78,10 +86,12 @@ public class ListActivity extends AppCompatActivity {
                         item.put( "line3", asteroidMultiArray[i][2]);
                         item.put( "line4", asteroidMultiArray[i][3]);
                         list.add(item);
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -90,10 +100,6 @@ public class ListActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(asteroidObjectRequest);
-        sa = new SimpleAdapter(this, list,
-                R.layout.individual,
-                new String[] { "line1", "line2", "line3", "line4"},
-                new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d} );
         ((ListView)findViewById(R.id.list)).setAdapter(sa);
     }
 }

@@ -11,6 +11,12 @@ public class AsteroidTracker {
 
     private static String closeApproachDate;
 
+    private static String orbitBody;
+
+    private static String orbitPeriod;
+
+    private static String neoReferenceId;
+
     public static String getAsteroidName(final JSONObject asteroid) throws JSONException {
         System.out.println(asteroid.getString("name"));
         asteroidName = asteroid.getString("name");
@@ -30,9 +36,10 @@ public class AsteroidTracker {
         asteroidUrl = asteroid.getString("nasa_jpl_url");
         return asteroidUrl;
     }
-    public String getOrbitBody(final JSONObject asteroid) throws JSONException {
+    public static String getOrbitBody(final JSONObject asteroid) throws JSONException {
         JSONArray approachArray = asteroid.getJSONArray("close_approach_data");
-        return approachArray.getJSONObject(4).toString();
+        orbitBody = approachArray.getJSONObject(0).getString("orbiting_body");
+        return orbitBody;
     }
     public boolean isHazardous(final JSONObject asteroid) throws JSONException {
         return asteroid.getBoolean("is_potentially_hazardous_asteroid");
@@ -41,6 +48,15 @@ public class AsteroidTracker {
         JSONArray approachArray = asteroid.getJSONArray("close_approach_data");
         closeApproachDate = approachArray.getJSONObject(0).getString("close_approach_date");
         return closeApproachDate;
+    }
+    public static String getOrbitalPeriod(final JSONObject asteroid) throws JSONException {
+        JSONObject orbitalData = asteroid.getJSONObject("orbital_data");
+        orbitPeriod = orbitalData.getString("orbital_period");
+        return orbitPeriod;
+    }
+    public static String getNeoReferenceId(final JSONObject asteroid) throws JSONException {
+        neoReferenceId = asteroid.getString("neo_reference_id");
+        return neoReferenceId;
     }
 
 }

@@ -37,7 +37,6 @@ import org.json.JSONStringer;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView asteroidTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +65,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, ListActivity.class);
                 startActivity(i);
+            }
+        });
+        final Button nasaNewsButton = findViewById(R.id.NASANewsButton);
+        nasaNewsButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent("android.intent.action.VIEW");
+                newIntent.setData(Uri.parse("https://www.jpl.nasa.gov/news/"));
+                startActivity(newIntent);
             }
         });
     }

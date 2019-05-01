@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -39,7 +40,7 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="138dp"
         android:layout_height="wrap_content"
         android:text="Asteroid List"
         app:layout_anchor="@+id/AsteroidView"
@@ -48,7 +49,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="474dp"
+        android:layout_height="213dp"
         tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
 
 </android.support.design.widget.CoordinatorLayout>

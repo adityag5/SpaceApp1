@@ -52,6 +52,8 @@ public class ListActivity extends AppCompatActivity {
 
         final List<HashMap<String,String>> list = new ArrayList<>();
 
+
+
         final SimpleAdapter sa = new SimpleAdapter(this, list,
                 R.layout.individual,
                 new String[] { "line1", "line2", "line3", "line4"},
@@ -73,30 +75,29 @@ public class ListActivity extends AppCompatActivity {
 
                         asteroidMultiArray[i][0] = AsteroidTracker.getAsteroidName(asteroid);
                         asteroidMultiArray[i][1] = AsteroidTracker.getAsteroidUrl(asteroid);
-                        asteroidMultiArray[i][2] = AsteroidTracker.getNeoReferenceId(asteroid);
-                        asteroidMultiArray[i][3] = AsteroidTracker.getOrbitalPeriod(asteroid);
+                        asteroidMultiArray[i][2] = AsteroidTracker.getCloseApproachDate(asteroid);
+                        asteroidMultiArray[i][3] = AsteroidTracker.getOrbitBody(asteroid);
 
 
-                        //asteroidTextView.append(AsteroidTracker.getCloseApproachDate(asteroid));
                     }
                     HashMap<String,String> item = new HashMap<>();
                     for(int i = 0; i < asteroidMultiArray.length; i++){
-                        item.put( "line1", asteroidMultiArray[i][0]);
-                        item.put( "line2", asteroidMultiArray[i][1]);
-                        item.put( "line3", asteroidMultiArray[i][2]);
-                        item.put( "line4", asteroidMultiArray[i][3]);
-                    }
+                        item.put( asteroidMultiArray[i][0], asteroidMultiArray[i][1]);
+                        item.put( asteroidMultiArray[i][0], asteroidMultiArray[i][1]);
+                        item.put( asteroidMultiArray[i][0], asteroidMultiArray[i][2]);
+                        item.put( asteroidMultiArray[i][0], asteroidMultiArray[i][3]);
 
-                    Iterator it = item.entrySet().iterator();
-                    while(it.hasNext()) {
-                        HashMap<String, String> resultsMap = new HashMap<>();
-                        Map.Entry pair = (Map.Entry)it.next();
-                        resultsMap.put("line1", pair.getKey().toString());
-                        resultsMap.put("line2", pair.getKey().toString());
-                        resultsMap.put("line3", pair.getKey().toString());
-                        resultsMap.put("line4", pair.getKey().toString());
-                        list.add(resultsMap);
 
+                        Iterator it = item.entrySet().iterator();
+                        while(it.hasNext()) {
+                            HashMap<String, String> resultsMap = new HashMap<>();
+                            Map.Entry pair = (Map.Entry) it.next();
+                            resultsMap.put("line1", "Name : " + asteroidMultiArray[i][0]);
+                            resultsMap.put("line2", "JPL URL : " + asteroidMultiArray[i][1]);
+                            resultsMap.put("line3", "Close Approach Date : " + asteroidMultiArray[i][2]);
+                            resultsMap.put("line4", "Orbit Body : " + asteroidMultiArray[i][3]);
+                            list.add(resultsMap);
+                        }
                     }
                     results.setAdapter(sa);
                 } catch (JSONException e) {

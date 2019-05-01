@@ -39,4 +39,36 @@
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="16sp" />
 
+    <TextView
+        android:id="@+id/line_e"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/line_f"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/line_g"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/line_h"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="16sp" />
+
 </LinearLayout>

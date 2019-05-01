@@ -57,7 +57,7 @@ public class ListActivity extends AppCompatActivity {
         final SimpleAdapter sa = new SimpleAdapter(this, list,
                 R.layout.individual,
                 new String[] { "line1", "line2", "line3", "line4", "line5", "line6", "line7", "line8"},
-                new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e, R.id.line_f, R.id.line_g, R.id.line_g} );
+                new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e, R.id.line_f, R.id.line_g, R.id.line_h} );
 
 
         requestQueue = Volley.newRequestQueue(this);
@@ -67,7 +67,7 @@ public class ListActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray objectArray = response.getJSONArray("near_earth_objects");
-                    String[][] asteroidMultiArray = new String[objectArray.length()][4];
+                    String[][] asteroidMultiArray = new String[objectArray.length()][8];
 
                     for (int i = 0; i < objectArray.length(); i++) {
 

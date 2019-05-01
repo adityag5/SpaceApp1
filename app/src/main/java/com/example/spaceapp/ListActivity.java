@@ -80,24 +80,20 @@ public class ListActivity extends AppCompatActivity {
 
 
                     }
-                    HashMap<String,String> item = new HashMap<>();
-                    for(int i = 0; i < asteroidMultiArray.length; i++){
-                        item.put( asteroidMultiArray[i][0], asteroidMultiArray[i][1]);
-                        item.put( asteroidMultiArray[i][0], asteroidMultiArray[i][1]);
-                        item.put( asteroidMultiArray[i][0], asteroidMultiArray[i][2]);
-                        item.put( asteroidMultiArray[i][0], asteroidMultiArray[i][3]);
+                    HashMap<String, String> item = new HashMap<>();
+                    for (int i = 0; i < asteroidMultiArray.length; i++) {
+                        item.put(asteroidMultiArray[i][0], asteroidMultiArray[i][1]);
+                        item.put(asteroidMultiArray[i][0], asteroidMultiArray[i][1]);
+                        item.put(asteroidMultiArray[i][0], asteroidMultiArray[i][2]);
+                        item.put(asteroidMultiArray[i][0], asteroidMultiArray[i][3]);
 
+                        HashMap<String, String> resultsMap = new HashMap<>();
 
-                        Iterator it = item.entrySet().iterator();
-                        while(it.hasNext()) {
-                            HashMap<String, String> resultsMap = new HashMap<>();
-                            Map.Entry pair = (Map.Entry) it.next();
-                            resultsMap.put("line1", "Name : " + asteroidMultiArray[i][0]);
-                            resultsMap.put("line2", "JPL URL : " + asteroidMultiArray[i][1]);
-                            resultsMap.put("line3", "Close Approach Date : " + asteroidMultiArray[i][2]);
-                            resultsMap.put("line4", "Orbit Body : " + asteroidMultiArray[i][3]);
-                            list.add(resultsMap);
-                        }
+                        resultsMap.put("line1", "Name : " + asteroidMultiArray[i][0]);
+                        resultsMap.put("line2", "JPL URL : " + asteroidMultiArray[i][1]);
+                        resultsMap.put("line3", "Close Approach Date : " + asteroidMultiArray[i][2]);
+                        resultsMap.put("line4", "Orbit Body : " + asteroidMultiArray[i][3]);
+                        list.add(resultsMap);
                     }
                     results.setAdapter(sa);
                 } catch (JSONException e) {
@@ -112,6 +108,6 @@ public class ListActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(asteroidObjectRequest);
-        //((ListView)findViewById(R.id.list)).setAdapter(sa);
+
     }
 }

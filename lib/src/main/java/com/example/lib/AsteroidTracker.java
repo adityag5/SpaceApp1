@@ -15,9 +15,9 @@ public class AsteroidTracker {
 
     private static String orbitPeriod;
 
-    private static int asteroidSizeMetersMin;
+    private static String asteroidSizeMetersMin;
 
-    private static int asteroidSizeMetersMax;
+    private static String asteroidSizeMetersMax;
 
     private static String isHazardous;
 
@@ -29,17 +29,20 @@ public class AsteroidTracker {
         asteroidName = asteroid.getString("name");
         return asteroidName;
     }
-    public static int getAsteroidSizeMetersMin(final JSONObject asteroid) throws JSONException {
+    public static String getAsteroidSizeMetersMin(final JSONObject asteroid) throws JSONException {
         JSONObject diameter = asteroid.getJSONObject("estimated_diameter");
         JSONObject meters = diameter.getJSONObject("meters");
-        asteroidSizeMetersMin = meters.getInt("estimated_diameter_min");
+        int minSize = meters.getInt("estimated_diameter_min");
+        asteroidSizeMetersMin = Integer.toString(minSize);
         return asteroidSizeMetersMin;
     }
-    public int getAsteroidSizeMetersMax(final JSONObject asteroid) throws JSONException {
+    public static String getAsteroidSizeMetersMax(final JSONObject asteroid) throws JSONException {
         JSONObject diameter = asteroid.getJSONObject("estimated_diameter");
         JSONObject meters = diameter.getJSONObject("meters");
-        asteroidSizeMetersMax = meters.getInt("estimated_diameter_max");
+        int maxSize = meters.getInt("estimated_diameter_max");
+        asteroidSizeMetersMax = Integer.toString(maxSize);
         return asteroidSizeMetersMax;
+
     }
     public static String getAsteroidUrl(final JSONObject asteroid) throws JSONException {
         asteroidUrl = asteroid.getString("nasa_jpl_url");

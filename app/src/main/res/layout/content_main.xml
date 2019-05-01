@@ -11,7 +11,7 @@
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="53dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -21,10 +21,9 @@
         android:text="Asteroid Video"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.876" />
+        app:layout_constraintVertical_bias="0.594" />
 
     <TextView
         android:id="@+id/textView2"
@@ -32,12 +31,14 @@
         android:layout_height="108dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:text="Asteroid App"
         android:textColor="@android:color/black"
         android:textSize="69sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +50,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="188dp"
+        android:layout_marginBottom="76dp"
         android:text="NASA News"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/button"

@@ -25,18 +25,14 @@
         android:id="@+id/include"
         layout="@layout/content_main"
         android:layout_width="match_parent"
-        android:layout_height="759dp"
-        app:layout_anchor="@+id/imageView"
-        app:layout_anchorGravity="left|bottom" />
+        android:layout_height="759dp" />
 
     <TextView
         android:id="@+id/AsteroidView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="208dp"
         android:textColor="@android:color/black"
-        android:textSize="30sp"
-        app:layout_anchor="@+id/imageView"
-        app:layout_anchorGravity="right|bottom" />
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/button2"
@@ -45,10 +41,4 @@
         android:text="Asteroid List"
         app:layout_anchor="@+id/AsteroidView"
         app:layout_anchorGravity="bottom|center" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="213dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
 </android.support.design.widget.CoordinatorLayout>
